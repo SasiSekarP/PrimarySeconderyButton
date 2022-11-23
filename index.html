@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>changing head size and color</title>
+</head>
+<body>
+    <div class="inputContainer" id="inputContainer">
+        <input type="text" id="inputTxt" placeholder="Enter a text"/>
+        <button class="btn" onclick="adding()">add</button>
+    </div>
+    
+    <div class="altMessage" id="altMessage">Please Enter a valid message</div>
+    <div class="btnContainer">
+        <div class="row2">
+            <button class="btn" onclick="changeToPrimary()">Primary</button>
+            <button class="btn" onclick="changeToSecondary()">Secondary</button>
+            <button class="btn" onclick="changeFont1()">Font 1</button>
+            <button class="btn" onclick="changeFont2()">Font 2</button>
+            <button class="btn" onclick="changeFont3()">Font 3</button>
+        </div>
+    </div>
+    <div class="resultContainer" id="resultContainer">
+    </div>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+*,*::after,*::before{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(47, 47, 50);
+    min-width: 100vh;
+}
+
+.inputContainer{
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    align-items: center;
+}
+
+.btn{
+    width: 8rem;
+    height: 2rem;
+    padding: 0px 5px;
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-weight: 900;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid white;
+    background-color: rgb(47, 47, 50);
+    color: white;
+}
+
+.btn:hover{
+    background-color: black;
+    box-shadow: 5px 5px 10px black;
+}
+
+input{
+    outline: none;
+    height: 2rem;
+    width: 50%;
+    padding-left: 5px;
+}
+
+.resultContainer{
+    color: white;
+    text-align: justify;
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+    color: red;
+}
+
+.altMessage{
+    width: 80%;
+    margin: auto;
+    color: red;
+    visibility: hidden;
+    text-align: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.btnContainer{
+    width: 60%;
+    margin: auto;
+}
+
+.row2,.row3{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.row3{
+    margin-top: 1rem;
+}
+
+.primary{
+    color: white;
+}
+
+.secondary{
+    color: red;
+}
+    </style>
+    <script>
+        let inputTxtEl = document.getElementById('inputTxt');
+        let altMessageEl = document.getElementById('altMessage');
+        let resultContainerEl = document.getElementById('resultContainer');
+
+        function adding(){
+            inputTxtVal = inputTxtEl.value;
+            if(!inputTxtVal){
+                altMessageEl.style.visibility = 'visible';
+            }else{
+                altMessageEl.style.visibility = 'hidden';
+                resultContainerEl.innerHTML = `<h1>${inputTxtVal}</h1>`
+            }
+        }
+
+        function changeToPrimary(){
+            resultContainerEl.innerHTML = `<h1 class='primary'>${inputTxtVal}</h1>`
+        }
+        function changeToSecondary(){
+            resultContainerEl.innerHTML = `<h2 class='secondary'>${inputTxtVal}</h2>`
+        }
+
+        function changeFont1(){
+            resultContainerEl.style.fontFamily= 'BhuTuka Expanded One';
+        }
+
+        function changeFont2(){
+            resultContainerEl.style.fontFamily= 'Dancing Script';
+        }
+        function changeFont3(){
+            resultContainerEl.style.fontFamily= 'Roboto';
+        }
+    </script> 
+</body>
+</html>
